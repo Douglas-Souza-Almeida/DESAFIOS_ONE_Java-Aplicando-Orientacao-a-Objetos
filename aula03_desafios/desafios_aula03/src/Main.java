@@ -1,11 +1,5 @@
-import models.Cat;
-import models.CheckingAccount;
-import models.Dog;
-import models.ModelCar;
-
-import java.sql.SQLOutput;
+import models.*;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 public class Main {
     public static void main(String[] args) {
@@ -136,6 +130,7 @@ public class Main {
                     System.out.println("Opção inválida");
                     break;
             }
+            reading.nextLine();
         }
         /*
        04. Crie uma classe NumerosPrimos com métodos como verificarPrimalidade() e listarPrimos().
@@ -143,6 +138,24 @@ public class Main {
         NumerosPrimos. Adicione um método específico para cada uma das subclasses, como
         verificarSeEhPrimo() para o VerificadorPrimo e gerarProximoPrimo() para o GeradorPrimo.
          */
-
+        System.out.println("*********************************************************************");
+        System.out.println("04. Crie uma classe NumerosPrimos com métodos como " +
+                "verificarPrimalidade() e listarPrimos(). Em seguida, crie duas subclasses, " +
+                        "VerificadorPrimo e GeradorPrimo, que herdam da classe NumerosPrimos. " +
+                        "Adicione um método específico para cada uma subclasses, como " +
+                        "verificarSeEhPrimo() para o VerificadorPrimo e gerarProximoPrimo() para o GeradorPrimo.");
+        //instanciando as classses
+        PrimeChecker primeChecker = new PrimeChecker();
+        PrimeGenerator primeGenerator = new PrimeGenerator();
+        //solicitando ao usuário para que informe um número
+        System.out.printf("Informe um número para verificar se este é um número primo: ");
+        //leitura do dado
+        int num = reading.nextInt();
+        //verificando se o número é primo
+        primeChecker.primeChecker(num);
+        //listando números primos
+        primeChecker.listPrimeNumbers(num);
+        //informando qual seria o próximo número primo
+        primeGenerator.generateNextPrime(num);
     }
 }
